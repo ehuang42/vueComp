@@ -7,16 +7,48 @@
   </head>
   <body>
 
-     <div id="app">
-        {{ message }}
-    </div> 
+  <div id="app">
+        <h1>Hello Vue!</h1>
+  </div>
+    <div class = row>
+      <div class="column-left">
+          <div id="app-5">
+              <span v-if="seen">Stil</span>
+              <h3>{{ message }}</h3>
+              <button v-on:click="reverseMessage">Reverse Message</button>
+          </div>
+      </div>
+      <div class="column-right">
+          
+          <div id ="message-board"> 
+            <!-- instant message board -->
+            
+            <button v-on:click="deleteOne">Delete</button>
+            <!-- TODO: implement later -->
+            <ul>
+              <!-- commentpost -> is a prop field -->
+              <li
+                is="individual-comment"
+                v-for="comment in comments"
+                v-bind:commentpost="comment"
+                
+              >
+            </li>
+            </ul>
+            <input
+              v-model="newComment"
+              v-on:keyup.enter="addComment"
+              placeholder="Add a comment here!"
+            >
 
-    <div id="app-5">
-            <span v-if="seen">Stil</span>
-            <p>{{ message }}</p>
-            <button v-on:click="reverseMessage">Reverse Message</button>
-    </div>
+        </div>
+        
+      </div>
+      
     
+
+    
+
     <!-- include my custom script -->
     <script src= "index.js"></script> 
 

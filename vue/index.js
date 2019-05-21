@@ -1,11 +1,3 @@
-var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
-})
-
-
 var app5 = new Vue({
   el: '#app-5',
   data: {
@@ -19,3 +11,35 @@ var app5 = new Vue({
     }
   }
 })
+
+
+Vue.component('individual-comment', {
+  template: 
+  `<li> {{ commentpost }} </li>`,
+  props: ['commentpost']
+});
+
+new Vue({
+  el: '#message-board',
+  data: {
+    newComment: '',
+    comments: [
+      'Looks great Julianne!',
+      'I love the sea',
+      'Where are you at?'
+    ]
+  },
+  methods: {
+    methods: {
+      deleteOne: function () {
+          this.comments.pop()
+      }
+    },
+    addComment: function () {
+      if (this.newComment.trim() != "") {
+        this.comments.push(this.newComment)
+        this.newComment = ''
+      }
+    }
+  }
+});
