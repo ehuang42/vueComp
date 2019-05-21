@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue Starter Project</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+
+     <div id="app">
+        {{ message }}
+    </div> 
+
+    <div id="app-5">
+            <span v-if="seen">Stil</span>
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+    
+    <!-- include my custom script -->
+    <script src= "index.js"></script> 
+
+  </body>
+</html>
+
